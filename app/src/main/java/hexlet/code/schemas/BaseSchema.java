@@ -18,21 +18,19 @@ public class BaseSchema {
         return this;
     }
 
+//    public BaseSchema optional() {
+//        this.canBeNull = true;
+//        return this;
+//    }
+
     public boolean isValid(Object obj) {
         if (canBeNull && (obj == null || obj.equals(""))) {
             return true;
         } else if (!canBeNull && (obj == null || obj.equals(""))) {
             return false;
         } else {
-            for (Predicate state : predicates) {
-                if (!state.test(obj)) {
-                    return false;
-                }
-            }
-            return true;
-//            predicates.stream()
-//                    .allMatch(predicate -> predicate.test(obj));
+            return predicates.stream()
+                    .allMatch(predicate -> predicate.test(obj));
         }
-//        return false;
     }
 }
