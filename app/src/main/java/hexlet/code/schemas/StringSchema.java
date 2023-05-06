@@ -10,9 +10,8 @@ public class StringSchema extends BaseSchema {
     }
 
     @Override
-    public StringSchema required() {
+    public void required() {
         super.required();
-        return this;
     }
 
     public void minLength(int minLen) {

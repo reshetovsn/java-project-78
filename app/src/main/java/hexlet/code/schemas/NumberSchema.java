@@ -10,8 +10,19 @@ public class NumberSchema extends BaseSchema {
     }
 
     @Override
-    public BaseSchema required() {
+    public void required() {
         super.required();
+    }
+
+    public NumberSchema positive() {
+        Predicate<Integer> positive = x -> x > 0;
+        addPredicates(positive);
         return this;
+    }
+
+    public void range(Integer x1, Integer x2) {
+        this.required();
+        Predicate<Integer> inRange = x -> (x >= x1 && x <= x2);
+        addPredicates(inRange);
     }
 }
