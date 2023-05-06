@@ -11,12 +11,16 @@ public class MapSchema extends BaseSchema {
     }
 
     @Override
-    public void required() {
+    public BaseSchema required() {
         super.required();
+        return this;
     }
 
     public void sizeof(int num) {
         Predicate<Map> exactSize = x -> x.size() == num;
         addPredicates(exactSize);
+    }
+
+    public void shape(Map<String, BaseSchema> map) {
     }
 }
