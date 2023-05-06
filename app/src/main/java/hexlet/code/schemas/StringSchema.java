@@ -15,13 +15,11 @@ public class StringSchema extends BaseSchema {
     }
 
     public void minLength(int minLen) {
-        this.required();
         Predicate<String> lengthPredicate = x -> x.length() >= minLen;
         addPredicates(lengthPredicate);
     }
 
     public StringSchema contains(String str) {
-        this.required();
         Predicate<String> containsSubstring = x -> x.contains(str);
         addPredicates(containsSubstring);
         return this;

@@ -21,7 +21,6 @@ public class NumberSchema extends BaseSchema {
     }
 
     public void range(Integer x1, Integer x2) {
-        this.required();
         Predicate<Integer> inRange = x -> (x >= x1 && x <= x2);
         addPredicates(inRange);
     }
