@@ -78,5 +78,7 @@ class ValidatorTest {
         assertThat(schema.isValid(data)).isFalse();
         data.put("key2", "value2");
         assertThat(schema.isValid(data)).isTrue();
+        data.put("key3", "value3");
+        assertThat(schema.isValid(data)).isFalse();
     }
 }
