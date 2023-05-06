@@ -17,9 +17,8 @@ public class BaseSchema {
         this.canBeNull = false;
     }
 
-//    public BaseSchema notRequired() {
+//    public void notRequired() {
 //        this.canBeNull = true;
-//        return this;
 //    }
 
     public boolean isValid(Object obj) {
