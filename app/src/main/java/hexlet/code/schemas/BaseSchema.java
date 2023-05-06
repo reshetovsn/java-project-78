@@ -13,12 +13,14 @@ public class BaseSchema {
         predicates.add(state);
     }
 
-    public void required() {
+    public BaseSchema required() {
         this.canBeNull = false;
+        return this;
     }
 
-//    public void notRequired() {
+//    public BaseSchema notRequired() {
 //        this.canBeNull = true;
+//        return this;
 //    }
 
     public boolean isValid(Object obj) {
