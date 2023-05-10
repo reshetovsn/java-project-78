@@ -5,8 +5,8 @@ import java.util.function.Predicate;
 public class StringSchema extends BaseSchema {
 
     public StringSchema() {
-        Predicate<Object> string = x -> x instanceof String;
-        addPredicates(string);
+        Predicate<Object> isString = x -> x instanceof String;
+        addPredicates(isString);
     }
 
     @Override
