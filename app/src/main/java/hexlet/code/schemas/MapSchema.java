@@ -10,9 +10,8 @@ public final class MapSchema extends BaseSchema {
         addPredicates(isMap);
     }
 
-    @Override
     public MapSchema required() {
-        super.required();
+        canBeNull = false;
         return this;
     }
 

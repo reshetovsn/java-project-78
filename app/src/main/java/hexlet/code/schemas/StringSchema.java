@@ -9,9 +9,8 @@ public final class StringSchema extends BaseSchema {
         addPredicates(isString);
     }
 
-    @Override
     public StringSchema required() {
-        super.required();
+        canBeNull = false;
         return this;
     }
 

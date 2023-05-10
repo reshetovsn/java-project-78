@@ -13,10 +13,10 @@ public class BaseSchema {
         predicates.add(state);
     }
 
-    public BaseSchema required() {
-        this.canBeNull = false;
-        return this;
-    }
+//    public BaseSchema required() {
+//        this.canBeNull = false;
+//        return this;
+//    }
 
 //    public BaseSchema optDisableRequired() {
 //        this.canBeNull = true;

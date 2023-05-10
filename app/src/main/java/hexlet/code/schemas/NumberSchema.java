@@ -9,9 +9,8 @@ public final class NumberSchema extends BaseSchema {
         addPredicates(isInt);
     }
 
-    @Override
     public NumberSchema required() {
-        super.required();
+        canBeNull = false;
         return this;
     }
 
