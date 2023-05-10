@@ -6,8 +6,8 @@ import java.util.function.Predicate;
 public class MapSchema extends BaseSchema {
 
     public MapSchema() {
-        Predicate<Object> map = x -> x instanceof Map;
-        addPredicates(map);
+        Predicate<Object> isMap = x -> x instanceof Map;
+        addPredicates(isMap);
     }
 
     @Override
@@ -17,10 +17,17 @@ public class MapSchema extends BaseSchema {
     }
 
     public void sizeof(int num) {
-        Predicate<Map> exactSize = x -> x.size() == num;
+        Predicate<Map<?, ?>> exactSize = x -> x.size() == num;
         addPredicates(exactSize);
     }
 
-    public void shape(Map<String, BaseSchema> map) {
+    public void shape(Map<String, BaseSchema> conditionsMap) {
+        Predicate<Map<?, ?>> shape = inputMap -> conditionsMap.entrySet().stream()
+                .allMatch(condition -> {
+                    System.out.println(condition.getValue());
+                    Object key = condition.getKey();
+                    return condition.getValue().isValid(inputMap.get(key));
+                });
+        addPredicates(shape);
     }
 }
