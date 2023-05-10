@@ -18,7 +18,7 @@ public class BaseSchema {
         return this;
     }
 
-//    public BaseSchema notRequired() {
+//    public BaseSchema optDisableRequired() {
 //        this.canBeNull = true;
 //        return this;
 //    }
