@@ -90,14 +90,14 @@ class ValidatorTest {
         MapSchema schema = v.map();
         Map<String, BaseSchema> schemas = new HashMap<>();
 
-        schemas.put("name", v.string().required());
+        schemas.put("name", v.string().required().contains("Ma"));
         schemas.put("age", v.number().positive());
         schema.shape(schemas);
 
         Map<String, Object> human1 = new HashMap<>();
         human1.put("name", "Kolya");
         human1.put("age", 100);
-        assertThat(schema.isValid(human1)).isTrue();
+        assertThat(schema.isValid(human1)).isFalse();
 
         Map<String, Object> human2 = new HashMap<>();
         human2.put("name", "Maya");
