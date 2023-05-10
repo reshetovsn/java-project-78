@@ -10,6 +10,7 @@ public class MapSchema extends BaseSchema {
         addPredicates(isMap);
     }
 
+    @Override
     public MapSchema required() {
         super.required();
         return this;
