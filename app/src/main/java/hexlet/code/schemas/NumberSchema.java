@@ -5,8 +5,8 @@ import java.util.function.Predicate;
 public class NumberSchema extends BaseSchema {
 
     public NumberSchema() {
-        Predicate<Object> num = x -> x instanceof Integer;
-        addPredicates(num);
+        Predicate<Object> isInt = x -> x instanceof Integer;
+        addPredicates(isInt);
     }
 
     @Override
@@ -16,8 +16,8 @@ public class NumberSchema extends BaseSchema {
     }
 
     public NumberSchema positive() {
-        Predicate<Integer> positive = x -> x > 0;
-        addPredicates(positive);
+        Predicate<Integer> isPos = x -> x > 0;
+        addPredicates(isPos);
         return this;
     }
 
