@@ -10,8 +10,7 @@ public class MapSchema extends BaseSchema {
         addPredicates(isMap);
     }
 
-    @Override
-    public BaseSchema required() {
+    public MapSchema required() {
         super.required();
         return this;
     }
@@ -24,7 +23,7 @@ public class MapSchema extends BaseSchema {
     public void shape(Map<String, BaseSchema> conditionsMap) {
         Predicate<Map<?, ?>> shape = inputMap -> conditionsMap.entrySet().stream()
                 .allMatch(condition -> {
-                    System.out.println(condition.getValue());
+//                    System.out.println(condition.getValue());
                     Object key = condition.getKey();
                     return condition.getValue().isValid(inputMap.get(key));
                 });
